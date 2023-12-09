@@ -1,1 +1,80 @@
+ var Title = function(){
+            var id = 'li[rel = "' + _guid + '"] '+ ".title";
+            var template = '<div class="title" style="clear:both">Приближая весну</div>';
+            Title.superClass.apply(this, [id, template]);
+        }
+        Title.inherits(App.VisualElement);
+        
+        var Description = function(){
+            var id = 'li[rel = "' + _guid + '"] '+ ".description";
+            var template = '<div class="description" style="clear:both"></div>';
+            Description.superClass.apply(this, [id, template]);
+        }
+        Description.inherits(App.VisualElement);
+                
+        var Panel = function(container){
+            var id = 'li[rel = "' + _guid + '"] '+ ".panel";
+            var template = '<div class="panel" style="width: 100%;"></div>';
+            Panel.superClass.apply(this, [id, template, container]);
+        }
+        Panel.inherits(App.VisualElement);
 
+        var Grid = function () { 
+            var id = 'li[rel = "' + _guid + '"] '+ ".grid";
+            var template = '<div class="grid" style="background-color: #98fb98; float: left; width: 250px;"></div>';
+            Grid.superClass.apply(this, [id, template]);
+
+            var store = new Ext.data.JsonStore({// аналог "DataTable" из состава ExtJS
+                root: 'units',
+                totalProperty: 'count',
+                idProperty: 'id',
+                remoteSort: false,
+
+                fields: [
+                    'id', 'name', 'address', 'town', {name: 'checked', type: 'bool'}
+                ],
+
+                url: 'modules/units/units.php?action=GET_ACTIVE_PHARMACIES&projectId='+_param.projectId+'&stageId='+_param.stageId+'&rnd='+Math.random()
+            });
+            store.setDefaultSort('id', 'desc');
+
+            function renderTopic(value, p, record) {
+                return String.format('{1}, {2} {3}', record.data.town, value, record.data.address);
+            }
+
+            var grid = new Ext.grid.GridPanel({//многофункциональный грид из состава ExtJS
+                store: store,
+                trackMouseOver: false,
+                disableSelection: false,
+                width: 250,
+                loadMask: new Ext.LoadMask(Ext.getBody(), {onLoad: function(){ $.unblockUI(); } , onBeforeLoad: function(){ $.blockUI(); } }),
+
+                columns: [
+                {
+                    header: "Аптека",
+                    dataIndex: 'name',
+                    width: 200,
+                    renderer: renderTopic,
+                    sortable: true
+                }],
+
+                viewConfig: {
+                    forceFit: true,
+                    enableRowBody: true,
+                    showPreview: true
+                }
+            });
+
+            this.rowClick = function(event){
+                grid.on('rowclick', function(grid, rowIndex, e) {
+                    var r = grid.getStore().getAt(rowIndex);
+                    event(r, rowIndex);
+	            });
+            }            
+
+            this.height = function (height) {
+                grid.setHeight(height);
+            }
+
+            this.appendTo = function (parent) {
+                $(parent).append(this.template);
