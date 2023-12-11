@@ -1,1 +1,4 @@
-
+ var Title = function(){
+            var id = 'li[rel = "' + _guid + '"] '+ ".title";
+            var template = '<div class="title" style="clear:both">Приближая весну</div>';
+            Title.superClass.apply(this, [id, template]);
