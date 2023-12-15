@@ -16,3 +16,5 @@
             var template = '<div class="panel" style="width: 100%;"></div>';
             Panel.superClass.apply(this, [id, template, container]);
         }
+  }
+        Panel.inherits(App.VisualElement);
