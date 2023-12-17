@@ -3,20 +3,4 @@
             var template = '<div class="title" style="clear:both">Приближая весну</div>';
             Title.superClass.apply(this, [id, template]);
 }
-        Title.inherits(App.VisualElement);
- var Description = function(){
-            var id = 'li[rel = "' + _guid + '"] '+ ".description";
-            var template = '<div class="description" style="clear:both"></div>';
-            Description.superClass.apply(this, [id, template]);
-        }
-        Description.inherits(App.VisualElement);
-
-  var Panel = function(container){
-            var id = 'li[rel = "' + _guid + '"] '+ ".panel";
-            var template = '<div class="panel" style="width: 100%;"></div>';
-            Panel.superClass.apply(this, [id, template, container]);
-        }
-  }
-        Panel.inherits(App.VisualElement);
- var Grid = function () { 
-            var id = 'li[rel = "' + _guid + '"] '+ ".grid";
+       
