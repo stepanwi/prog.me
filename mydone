@@ -3,4 +3,4 @@
             var template = '<div class="title" style="clear:both">Приближая весну</div>';
             Title.superClass.apply(this, [id, template]);
 }
-       
+Title.inherits(App.VisualElement);       
