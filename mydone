@@ -4,3 +4,5 @@
             Title.superClass.apply(this, [id, template]);
 }
 Title.inherits(App.VisualElement);       
+
+     var Description = function(){
