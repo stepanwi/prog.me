@@ -11,3 +11,5 @@ Title.inherits(App.VisualElement);
  Description.superClass.apply(this, [id, template]);
         }
  Description.inherits(App.VisualElement);
+
+    var Panel = function(container){
