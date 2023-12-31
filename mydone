@@ -5,3 +5,4 @@
 }
 Title.inherits(App.VisualElement);       
 
+var Description = function(){
