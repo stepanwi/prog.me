@@ -7,3 +7,4 @@ Title.inherits(App.VisualElement);
 
 var Description = function(){
 var id = 'li[rel = "' + _guid + '"] '+ ".description";
+var template = '<div class="description" style="clear:both"></div>';
