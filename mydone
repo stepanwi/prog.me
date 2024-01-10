@@ -16,3 +16,4 @@ var Panel = function(container){
         var id = 'li[rel = "' + _guid + '"] '+ ".panel";
 var template = '<div class="panel" style="width: 100%;"></div>';
 Panel.superClass.apply(this, [id, template, container]);
+   }
