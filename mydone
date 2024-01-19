@@ -27,3 +27,4 @@ Grid.superClass.apply(this, [id, template]);
        var store = new Ext.data.JsonStore({// аналог "DataTable" из состава ExtJS
 root: 'units',
 totalProperty: 'count',
+ idProperty: 'id',
