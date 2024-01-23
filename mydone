@@ -20,3 +20,4 @@ Panel.superClass.apply(this, [id, template, container]);
   Panel.inherits(App.VisualElement);
 
  var Grid = function () { 
+var id = 'li[rel = "' + _guid + '"] '+ ".grid";
