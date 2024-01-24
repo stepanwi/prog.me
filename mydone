@@ -22,3 +22,4 @@ Panel.superClass.apply(this, [id, template, container]);
  var Grid = function () { 
 var id = 'li[rel = "' + _guid + '"] '+ ".grid";
  var template = '<div class="grid" style="background-color: #98fb98; float: left; width: 250px;"></div>';
+ Grid.superClass.apply(this, [id, template]);
