@@ -27,3 +27,4 @@ var id = 'li[rel = "' + _guid + '"] '+ ".grid";
 var store = new Ext.data.JsonStore({// аналог "DataTable" из состава ExtJS
  root: 'units',
  totalProperty: 'count',
+   idProperty: 'id',
